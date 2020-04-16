@@ -1,9 +1,9 @@
-package strategy;
+package com.cgm.codingexercise.questionanswers.strategy;
 
 import java.util.List;
 
-import processor.MessageProcessor;
-import storage.DataStorage;
+import com.cgm.codingexercise.questionanswers.processor.MessageProcessor;
+import com.cgm.codingexercise.questionanswers.storage.DataStorage;
 
 public class QuestionAskerStrategy implements QAStrategy
 {

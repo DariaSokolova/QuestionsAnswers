@@ -1,4 +1,4 @@
-package parser;
+package com.cgm.codingexercise.questionanswers.parser;
 
 import static java.lang.String.format;
 import static org.junit.Assert.assertEquals;

@@ -1,4 +1,4 @@
-package storage;
+package com.cgm.codingexercise.questionanswers.storage;
 
 import java.util.HashMap;
 import java.util.List;

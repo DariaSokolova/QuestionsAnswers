@@ -1,4 +1,4 @@
-package processor;
+package com.cgm.codingexercise.questionanswers.processor;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -9,8 +9,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import strategy.QuestionAnswersSaverStrategy;
-import strategy.QuestionAskerStrategy;
+import com.cgm.codingexercise.questionanswers.strategy.QuestionAnswersSaverStrategy;
+import com.cgm.codingexercise.questionanswers.strategy.QuestionAskerStrategy;
 
 public class QuestionAnswersProcessorTests
 {

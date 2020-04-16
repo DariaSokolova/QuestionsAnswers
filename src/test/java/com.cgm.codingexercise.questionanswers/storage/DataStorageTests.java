@@ -1,4 +1,4 @@
-package storage;
+package com.cgm.codingexercise.questionanswers.storage;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;

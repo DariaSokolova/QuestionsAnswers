@@ -1,10 +1,12 @@
-import parser.QAParser;
-import processor.InputProcessor;
-import processor.MessageProcessor;
-import processor.QuestionAnswersProcessor;
-import storage.DataStorage;
-import strategy.QuestionAnswersSaverStrategy;
-import strategy.QuestionAskerStrategy;
+package com.cgm.codingexercise.questionanswers;
+
+import com.cgm.codingexercise.questionanswers.parser.QAParser;
+import com.cgm.codingexercise.questionanswers.processor.InputProcessor;
+import com.cgm.codingexercise.questionanswers.processor.MessageProcessor;
+import com.cgm.codingexercise.questionanswers.processor.QuestionAnswersProcessor;
+import com.cgm.codingexercise.questionanswers.storage.DataStorage;
+import com.cgm.codingexercise.questionanswers.strategy.QuestionAnswersSaverStrategy;
+import com.cgm.codingexercise.questionanswers.strategy.QuestionAskerStrategy;
 
 public class QAndAApp
 {

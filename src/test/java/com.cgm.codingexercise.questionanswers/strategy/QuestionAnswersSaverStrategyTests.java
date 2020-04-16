@@ -1,4 +1,4 @@
-package strategy;
+package com.cgm.codingexercise.questionanswers.strategy;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.never;
@@ -10,10 +10,10 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import parser.ParserResult;
-import parser.QAParser;
-import processor.MessageProcessor;
-import storage.DataStorage;
+import com.cgm.codingexercise.questionanswers.parser.ParserResult;
+import com.cgm.codingexercise.questionanswers.parser.QAParser;
+import com.cgm.codingexercise.questionanswers.processor.MessageProcessor;
+import com.cgm.codingexercise.questionanswers.storage.DataStorage;
 
 public class QuestionAnswersSaverStrategyTests
 {

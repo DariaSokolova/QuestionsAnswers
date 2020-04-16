@@ -1,4 +1,4 @@
-package util;
+package com.cgm.codingexercise.questionanswers.util;
 
 public class Utils
 {

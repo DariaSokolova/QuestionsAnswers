@@ -1,9 +1,9 @@
-package processor;
+package com.cgm.codingexercise.questionanswers.processor;
 
-import strategy.QAStrategy;
-import strategy.QuestionAnswersSaverStrategy;
-import strategy.QuestionAskerStrategy;
-import util.Utils;
+import com.cgm.codingexercise.questionanswers.strategy.QAStrategy;
+import com.cgm.codingexercise.questionanswers.strategy.QuestionAnswersSaverStrategy;
+import com.cgm.codingexercise.questionanswers.strategy.QuestionAskerStrategy;
+import com.cgm.codingexercise.questionanswers.util.Utils;
 
 public class QuestionAnswersProcessor
 {

@@ -1,4 +1,4 @@
-package strategy;
+package com.cgm.codingexercise.questionanswers.strategy;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -11,8 +11,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import processor.MessageProcessor;
-import storage.DataStorage;
+import com.cgm.codingexercise.questionanswers.processor.MessageProcessor;
+import com.cgm.codingexercise.questionanswers.storage.DataStorage;
 
 public class QuestionAskerStrategyTests
 {

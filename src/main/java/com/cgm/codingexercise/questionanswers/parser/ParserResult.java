@@ -1,4 +1,4 @@
-package parser;
+package com.cgm.codingexercise.questionanswers.parser;
 
 import java.util.ArrayList;
 import java.util.List;

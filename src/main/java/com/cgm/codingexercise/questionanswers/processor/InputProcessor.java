@@ -1,4 +1,4 @@
-package processor;
+package com.cgm.codingexercise.questionanswers.processor;
 
 import java.util.Scanner;
 
