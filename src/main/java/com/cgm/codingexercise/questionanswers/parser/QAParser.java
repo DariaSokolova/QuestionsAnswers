@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class QAParser
 {
-	private static final Pattern answerPattern = Pattern.compile("(\\s*\"\\w+\"\\s*)+?");
+	private static final Pattern answerPattern = Pattern.compile("(\\s*\"[\\w\\s]+\"\\s*)+?");
 
 	public ParserResult parseInput(final String input)
 	{
@@ -41,7 +41,8 @@ public class QAParser
 			matcher.reset();
 			while (matcher.find())
 			{
-				final String answer = matcher.group().trim();
+				final String answer = matcher.group().replace("\"", "").trim();
+				rejectEmpty(result, "Answer", answer);
 				rejectTooLong(result, "Answer", answer);
 				result.getAnswers().add(answer);
 			}
