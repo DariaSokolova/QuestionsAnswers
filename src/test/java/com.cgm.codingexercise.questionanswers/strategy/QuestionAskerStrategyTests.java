@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.cgm.codingexercise.questionanswers.processor.InputProcessor;
 import com.cgm.codingexercise.questionanswers.processor.MessageProcessor;
 import com.cgm.codingexercise.questionanswers.storage.DataStorage;
 
@@ -24,12 +25,15 @@ public class QuestionAskerStrategyTests
 	@Mock
 	private DataStorage dataStorage;
 
+	@Mock
+	private InputProcessor inputProcessor;
+
 	@Before
 	public void before()
 	{
 		MockitoAnnotations.initMocks(this);
 
-		strategy = new QuestionAskerStrategy(messageProcessor, dataStorage);
+		strategy = new QuestionAskerStrategy(messageProcessor, dataStorage, inputProcessor);
 
 		dataStorage.clearStorage();
 	}
@@ -39,8 +43,9 @@ public class QuestionAskerStrategyTests
 	{
 		final String question = "test";
 		when(dataStorage.findAnswers(question)).thenReturn(null);
+		when(inputProcessor.getUserInput()).thenReturn(question);
 
-		strategy.run(question);
+		strategy.run();
 
 		verify(messageProcessor).printInfoMessage("Please enter exact question");
 		verify(messageProcessor).printInfoMessage("the answer to life, universe and everything is 42");
@@ -52,8 +57,9 @@ public class QuestionAskerStrategyTests
 		final List<String> answers = Arrays.asList("answer1", "answer2");
 		final String question = "test";
 		when(dataStorage.findAnswers(question)).thenReturn(answers);
+		when(inputProcessor.getUserInput()).thenReturn(question);
 
-		strategy.run(question);
+		strategy.run();
 
 		verify(messageProcessor).printInfoMessage("Please enter exact question");
 		verify(messageProcessor).printInfoMessage("answer1");

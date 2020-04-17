@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.cgm.codingexercise.questionanswers.parser.ParserResult;
 import com.cgm.codingexercise.questionanswers.parser.QAParser;
+import com.cgm.codingexercise.questionanswers.processor.InputProcessor;
 import com.cgm.codingexercise.questionanswers.processor.MessageProcessor;
 import com.cgm.codingexercise.questionanswers.storage.DataStorage;
 
@@ -28,12 +29,15 @@ public class QuestionAnswersSaverStrategyTests
 	@Mock
 	private QAParser qaParser;
 
+	@Mock
+	private InputProcessor inputProcessor;
+
 	@Before
 	public void before()
 	{
 		MockitoAnnotations.initMocks(this);
 
-		strategy = new QuestionAnswersSaverStrategy(messageProcessor, qaParser, dataStorage);
+		strategy = new QuestionAnswersSaverStrategy(messageProcessor, qaParser, dataStorage, inputProcessor);
 	}
 
 	@Test
@@ -44,11 +48,13 @@ public class QuestionAnswersSaverStrategyTests
 		result.setQuestion("test question?");
 		result.getAnswers().add("answer");
 		when(qaParser.parseInput(inputString)).thenReturn(result);
+		when(inputProcessor.getUserInput()).thenReturn(inputString);
 
-		strategy.run(inputString);
+		strategy.run();
 
 		verify(messageProcessor).printInfoMessage("Please input question with answers as per pattern: "
-				+ "<question>? “<answer1>” “<answer2>” “<answerX>”");
+				+ "<question>? \"<answer1>\" \"<answer2>\" \"<answerX>\"");
+		verify(messageProcessor).printInfoMessage("The question with answers was added into the database");
 
 		verify(dataStorage).saveQuestionWithAnswers(result.getQuestion(), result.getAnswers());
 
@@ -63,11 +69,12 @@ public class QuestionAnswersSaverStrategyTests
 		result.getParserErrors().add("Error 1");
 		result.getParserErrors().add("Error 2");
 		when(qaParser.parseInput(inputString)).thenReturn(result);
+		when(inputProcessor.getUserInput()).thenReturn(inputString);
 
-		strategy.run(inputString);
+		strategy.run();
 
 		verify(messageProcessor).printInfoMessage("Please input question with answers as per pattern: "
-				+ "<question>? “<answer1>” “<answer2>” “<answerX>”");
+				+ "<question>? \"<answer1>\" \"<answer2>\" \"<answerX>\"");
 
 		verify(dataStorage, never()).saveQuestionWithAnswers(result.getQuestion(), result.getAnswers());
 

@@ -34,7 +34,7 @@ public class QuestionAnswersProcessor
 			final QAStrategy strategy = getStrategy(userOption);
 			if (strategy != null)
 			{
-				strategy.run(inputProcessor.getUserInput());
+				strategy.run();
 			}
 			else
 			{

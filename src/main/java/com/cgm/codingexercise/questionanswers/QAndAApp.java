@@ -15,9 +15,9 @@ public class QAndAApp
 		final DataStorage dataStorage = new DataStorage();
 		final QAParser qaParser = new QAParser();
 		final MessageProcessor messageProcessor = new MessageProcessor();
-		final QuestionAnswersSaverStrategy questionAnswersSaverStrategy = new QuestionAnswersSaverStrategy(messageProcessor, qaParser, dataStorage);
-		final QuestionAskerStrategy questionAskerStrategy = new QuestionAskerStrategy(messageProcessor, dataStorage);
 		final InputProcessor inputProcessor = new InputProcessor();
+		final QuestionAnswersSaverStrategy questionAnswersSaverStrategy = new QuestionAnswersSaverStrategy(messageProcessor, qaParser, dataStorage, inputProcessor);
+		final QuestionAskerStrategy questionAskerStrategy = new QuestionAskerStrategy(messageProcessor, dataStorage, inputProcessor);
 		final QuestionAnswersProcessor processor =
 				new QuestionAnswersProcessor(messageProcessor, questionAnswersSaverStrategy, questionAskerStrategy, inputProcessor);
 		processor.process();

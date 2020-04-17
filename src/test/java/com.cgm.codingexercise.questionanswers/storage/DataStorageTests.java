@@ -26,6 +26,19 @@ public class DataStorageTests
 	}
 
 	@Test
+	public void testFindAnswers_whenAnswersAskedWithQuestionMark()
+	{
+		dataStorage = new DataStorage();
+
+		dataStorage.saveQuestionWithAnswers("question", asList("answer"));
+
+		final List<String> answers = dataStorage.findAnswers("question?");
+
+		assertEquals(1, answers.size());
+		assertEquals("answer", answers.get(0));
+	}
+
+	@Test
 	public void testFindAnswers_whenAnswersDoNotExist()
 	{
 		dataStorage = new DataStorage();

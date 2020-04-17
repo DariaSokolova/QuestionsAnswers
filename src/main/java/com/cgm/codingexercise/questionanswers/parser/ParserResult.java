@@ -5,16 +5,20 @@ import java.util.List;
 
 public class ParserResult
 {
-	private List<String> parserErrors = new ArrayList<>();
+	private List<String> parserErrors;
 	private String question;
-	private List<String> answers = new ArrayList<>();
+	private List<String> answers;
 
 	public List<String> getParserErrors()
 	{
+		if (parserErrors == null)
+		{
+			parserErrors = new ArrayList<>();
+		}
 		return parserErrors;
 	}
 
-	public void setParserErrors(List<String> parserErrors)
+	public void setParserErrors(final List<String> parserErrors)
 	{
 		this.parserErrors = parserErrors;
 	}
@@ -24,17 +28,21 @@ public class ParserResult
 		return question;
 	}
 
-	public void setQuestion(String question)
+	public void setQuestion(final String question)
 	{
 		this.question = question;
 	}
 
 	public List<String> getAnswers()
 	{
+		if (answers == null)
+		{
+			answers = new ArrayList<>();
+		}
 		return answers;
 	}
 
-	public void setAnswers(List<String> answers)
+	public void setAnswers(final List<String> answers)
 	{
 		this.answers = answers;
 	}

@@ -21,8 +21,8 @@ public class QAParserTests
 		assertTrue(result.getParserErrors().isEmpty());
 		assertEquals("question", result.getQuestion());
 		assertEquals(2, result.getAnswers().size());
-		assertEquals("answer1", result.getAnswers().get(0));
-		assertEquals("answer2", result.getAnswers().get(1));
+		assertEquals("\"answer1\"", result.getAnswers().get(0));
+		assertEquals("\"answer2\"", result.getAnswers().get(1));
 	}
 
 	@Test
@@ -134,7 +134,7 @@ public class QAParserTests
 		final ParserResult result = parser.parseInput(input);
 
 		assertFalse(result.getParserErrors().isEmpty());
-		assertEquals("Answer should not be empty", result.getParserErrors().get(0));
+		assertEquals("<\"  \"> is not valid answers input", result.getParserErrors().get(0));
 	}
 
 	private String createLongString(final int length)

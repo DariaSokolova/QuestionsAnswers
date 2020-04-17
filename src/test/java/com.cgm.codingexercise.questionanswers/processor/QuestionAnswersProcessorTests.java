@@ -41,12 +41,11 @@ public class QuestionAnswersProcessorTests
 	{
 		when(inputProcessor.getUserInput())
 				.thenReturn("1")
-				.thenReturn("input")
 				.thenReturn("3");
 
 		processor.process();
 
-		verify(questionAnswersSaverStrategy).run("input");
+		verify(questionAnswersSaverStrategy).run();
 
 		verify(messageProcessor, times(2))
 				.printInfoMessages(
@@ -62,12 +61,11 @@ public class QuestionAnswersProcessorTests
 	{
 		when(inputProcessor.getUserInput())
 				.thenReturn("2")
-				.thenReturn("input")
 				.thenReturn("3");
 
 		processor.process();
 
-		verify(questionAskerStrategy).run("input");
+		verify(questionAskerStrategy).run();
 
 		verify(messageProcessor, times(2))
 				.printInfoMessages(
